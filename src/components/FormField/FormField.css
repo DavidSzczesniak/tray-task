@@ -1,0 +1,16 @@
+.form-field input {
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    width: 100%;
+    margin-bottom: 0.5rem;
+}
+
+.required-symbol {
+    color: var(--error);
+    margin-left: 0.5rem;
+}
+
+.invalid-input-msg {
+    color: var(--error);
+    margin-top: 0;
+}

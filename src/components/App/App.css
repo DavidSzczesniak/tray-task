@@ -1,0 +1,11 @@
+.app-container {
+    border: 1px solid black;
+    padding: 0 1rem 1rem;
+}
+
+.app-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+}

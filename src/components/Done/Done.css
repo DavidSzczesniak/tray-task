@@ -1,0 +1,7 @@
+.done-page {
+    text-align: center;
+}
+
+.done-page svg {
+    color: var(--success);
+}

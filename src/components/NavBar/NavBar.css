@@ -1,0 +1,17 @@
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (min-width: 40em) {
+    .navbar {
+    }
+}
+
+.nav-btn {
+    padding: 1rem;
+}
+
+.nav-btn.current {
+    font-weight: bold;
+}
