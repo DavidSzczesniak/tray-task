@@ -14,8 +14,8 @@ const useForm = (validate, formSuccess) => {
     const dispatch = useDispatch();
 
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setValues({ ...values, [name]: value });
+        const { id, value } = e.target;
+        setValues({ ...values, [id]: value });
     };
 
     const handleSubmit = (e) => {

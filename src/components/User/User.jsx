@@ -16,7 +16,7 @@ const User = () => {
     return (
         <>
             {/* noValidate - suppress default form validation messages */}
-            <form onSubmit={handleSubmit} noValidate>
+            <form onSubmit={handleSubmit} noValidate data-testid="user-form">
                 <FormField label="Name" required values={values} handleChange={handleChange} />
                 <FormField label="Role" values={values} handleChange={handleChange} />
                 <FormField label="Email" required values={values} handleChange={handleChange} />
