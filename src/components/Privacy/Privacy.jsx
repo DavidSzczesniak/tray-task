@@ -19,13 +19,21 @@ const Privacy = () => {
 
     return (
         <>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} data-testid="user-preferences">
                 <div className="form-check">
-                    <input type="checkbox" onChange={() => setProductCheck(!productCheck)} />
+                    <input
+                        type="checkbox"
+                        onChange={() => setProductCheck(!productCheck)}
+                        data-testid="form-checkbox"
+                    />
                     <label>Receive updates about the Tray.io product by email</label>
                 </div>
                 <div className="form-check">
-                    <input type="checkbox" onChange={() => setOtherCheck(!otherCheck)} />
+                    <input
+                        type="checkbox"
+                        onChange={() => setOtherCheck(!otherCheck)}
+                        data-testid="form-checkbox"
+                    />
                     <label>
                         Receive communcation by email for other products created by the Tray.io team
                     </label>
