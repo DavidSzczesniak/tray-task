@@ -1,0 +1,5 @@
+@media (min-width: 40em) {
+    .user-form {
+        width: 25rem;
+    }
+}
