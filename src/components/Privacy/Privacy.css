@@ -1,11 +1,16 @@
 .form-check {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .form-check input {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 2rem;
+    width: 2rem;
     margin-right: 1rem;
+    flex-shrink: 0;
+}
+
+.form-check input:hover {
+    cursor: pointer;
 }
