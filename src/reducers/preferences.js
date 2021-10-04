@@ -1,3 +1,6 @@
+/**
+ * Stores privacy preferences selected by the user
+ */
 const preferencesReducer = (state = {}, action) => {
     switch (action.type) {
         case 'UPDATE_PREF':

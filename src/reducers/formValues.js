@@ -1,3 +1,6 @@
+/**
+ * Stores form values passed by the user
+ */
 const valuesReducer = (state = {}, action) => {
     switch (action.type) {
         case 'UPDATE_FORM_VALUES':

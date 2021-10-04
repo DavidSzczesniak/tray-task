@@ -1,3 +1,6 @@
+/**
+ * Stores errors from form validation
+ */
 const errorsReducer = (state = {}, action) => {
     switch (action.type) {
         case 'UPDATE_ERRORS':
