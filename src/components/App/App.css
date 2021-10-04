@@ -1,11 +1,15 @@
 .app-container {
-    border: 1px solid black;
+    border: 1px solid transparent;
     padding: 0 1rem 1rem;
+    background: #fff;
+    border-radius: 10px;
+    min-width: 20rem;
+    max-width: 40rem;
 }
 
 .app-content {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    padding: 1rem;
+    padding: 0 1rem 1rem;
 }

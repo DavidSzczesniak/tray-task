@@ -4,6 +4,7 @@ import useForm from '../../helpers/useForm';
 import validate from '../../helpers/validateInputs';
 import Button from '../Button/Button';
 import FormField from '../FormField/FormField';
+import './User.css';
 
 const User = () => {
     const history = useHistory();
@@ -16,7 +17,7 @@ const User = () => {
     return (
         <>
             {/* noValidate - suppress default form validation messages */}
-            <form onSubmit={handleSubmit} noValidate data-testid="user-form">
+            <form onSubmit={handleSubmit} noValidate className="user-form" data-testid="user-form">
                 <FormField label="Name" required values={values} handleChange={handleChange} />
                 <FormField label="Role" values={values} handleChange={handleChange} />
                 <FormField label="Email" required values={values} handleChange={handleChange} />
