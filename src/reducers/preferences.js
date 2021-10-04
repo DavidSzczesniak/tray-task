@@ -1,5 +1,8 @@
 /**
  * Stores privacy preferences selected by the user
+ * @param {Object} state - state to modify
+ * @param {string} action - action to carry out
+ * @returns state
  */
 const preferencesReducer = (state = {}, action) => {
     switch (action.type) {
