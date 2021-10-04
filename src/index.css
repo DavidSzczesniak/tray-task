@@ -2,6 +2,8 @@
     --clr-primary: #333;
     --clr-background: #e5e5e5;
     --clr-outline: #888;
+    --clr-accent: #133bed;
+    --clr-accent-highlight: rgba(10, 70, 228, 0.9);
 
     --success: #16c784;
     --error: #ea3943;
@@ -29,4 +31,11 @@ body {
     padding: 20% 25%;
     background: var(--clr-background);
     color: var(--clr-primary);
+}
+
+.page-footer {
+    display: flex;
+    justify-content: right;
+    margin-top: 2rem;
+    width: 100%;
 }

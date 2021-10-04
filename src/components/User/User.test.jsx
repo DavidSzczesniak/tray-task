@@ -17,10 +17,10 @@ const renderComponent = () => {
 
 describe('render', () => {
     it('renders with expected input fields and button', async () => {
-        const { getByTestId, getAllByTestId, getByRole } = renderComponent();
+        const { getByTestId, getAllByTestId } = renderComponent();
         getByTestId('user-form');
         expect(getAllByTestId('form-field').length).toBe(4);
-        getByRole('button');
+        getByTestId('custom-btn');
     });
 });
 
@@ -32,18 +32,22 @@ describe('validation', () => {
      * @param {string} validInput - input that matches the field's validation rules
      */
     function validateField(label, invalidError, validInput) {
-        const { queryByText, getByRole, getByLabelText, getByText } = renderComponent();
+        const { queryByText, getByLabelText, getByText, getByTestId } = renderComponent();
         const input = getByLabelText(label);
 
+        function clickSubmit() {
+            fireEvent.click(getByTestId('custom-btn'));
+        }
+
         // empty required field should display error
-        fireEvent.click(getByRole('button'));
+        clickSubmit();
         getByText(`${label} is required`);
         expect(input).toHaveClass('invalid-input');
 
         if (invalidError) {
             // field with invalid value should display new error
             fireEvent.change(input, { target: { value: 'test' } });
-            fireEvent.click(getByRole('button'));
+            clickSubmit();
             getByText(invalidError);
         } else {
             invalidError = `${label} is required`;
@@ -51,7 +55,7 @@ describe('validation', () => {
 
         // field with valid value should no longer display error
         fireEvent.change(getByLabelText(label), { target: { value: validInput } });
-        fireEvent.click(getByRole('button'));
+        clickSubmit();
         expect(queryByText(invalidError)).not.toBeInTheDocument();
         expect(input).not.toHaveClass('invalid-input');
     }

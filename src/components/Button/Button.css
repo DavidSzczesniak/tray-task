@@ -1,0 +1,13 @@
+.custom-btn {
+    font-size: 1.2rem;
+    color: #fff;
+    background: var(--clr-accent);
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: none;
+}
+
+.custom-btn:hover {
+    cursor: pointer;
+    background: var(--clr-accent-highlight);
+}

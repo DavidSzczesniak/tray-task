@@ -3,6 +3,7 @@ import { useHistory } from 'react-router';
 import './Privacy.css';
 import { updatePreferences } from '../../actions';
 import { useDispatch } from 'react-redux';
+import Button from '../Button/Button';
 
 const Privacy = () => {
     const history = useHistory();
@@ -29,8 +30,8 @@ const Privacy = () => {
                         Receive communcation by email for other products created by the Tray.io team
                     </label>
                 </div>
-                <div className="btn-container">
-                    <button type="submit">Next</button>
+                <div className="page-footer">
+                    <Button type="submit" label="Next" />
                 </div>
             </form>
         </>
