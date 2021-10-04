@@ -33,13 +33,16 @@ describe('validation', () => {
      */
     function validateField(label, invalidError, validInput) {
         const { queryByText, getByRole, getByLabelText, getByText } = renderComponent();
+        const input = getByLabelText(label);
+
         // empty required field should display error
         fireEvent.click(getByRole('button'));
         getByText(`${label} is required`);
+        expect(input).toHaveClass('invalid-input');
 
         if (invalidError) {
             // field with invalid value should display new error
-            fireEvent.change(getByLabelText(label), { target: { value: 'test' } });
+            fireEvent.change(input, { target: { value: 'test' } });
             fireEvent.click(getByRole('button'));
             getByText(invalidError);
         } else {
@@ -50,6 +53,7 @@ describe('validation', () => {
         fireEvent.change(getByLabelText(label), { target: { value: validInput } });
         fireEvent.click(getByRole('button'));
         expect(queryByText(invalidError)).not.toBeInTheDocument();
+        expect(input).not.toHaveClass('invalid-input');
     }
 
     it('validates Name field', async () => {

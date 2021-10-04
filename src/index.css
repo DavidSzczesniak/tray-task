@@ -1,4 +1,8 @@
 :root {
+    --clr-primary: #333;
+    --clr-background: #e5e5e5;
+    --clr-outline: #888;
+
     --success: #16c784;
     --error: #ea3943;
 }
@@ -7,7 +11,7 @@
 
 * {
     font-family: 'Poppins', sans-serif;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 html {
@@ -23,4 +27,6 @@ html {
 body {
     margin: 0;
     padding: 20% 25%;
+    background: var(--clr-background);
+    color: var(--clr-primary);
 }

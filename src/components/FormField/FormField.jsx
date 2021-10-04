@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 const FormField = ({ type = 'text', label, required, values, handleChange }) => {
     const id = label.toLowerCase();
-    const errors = useSelector((state) => state.errors);
+    const error = useSelector((state) => state.errors)?.[id];
 
     return (
         <div className="form-field" data-testid="form-field">
@@ -20,8 +20,9 @@ const FormField = ({ type = 'text', label, required, values, handleChange }) => 
                 value={values[id]}
                 onChange={handleChange}
                 data-testid="form-input"
+                className={error ? 'invalid-input' : ''}
             />
-            {errors?.[id] && <p className="invalid-input-msg">{errors[id]}</p>}
+            {error && <p className="invalid-input-msg">{error}</p>}
         </div>
     );
 };
