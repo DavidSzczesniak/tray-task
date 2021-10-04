@@ -1,19 +1,12 @@
 import '@testing-library/jest-dom/extend-expect';
 import { fireEvent, render } from '@testing-library/react';
 import React from 'react';
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import rootReducer from '../../reducers';
 import Button from './Button';
 
-const store = createStore(rootReducer);
-const Wrapper = ({ children }) => <Provider store={store}>{children}</Provider>;
 const mockCallback = jest.fn();
 
 const renderComponent = ({ type, label, onClick }) => {
-    return render(<Button type={type} label={label} onClick={onClick} />, {
-        wrapper: Wrapper,
-    });
+    return render(<Button type={type} label={label} onClick={onClick} />);
 };
 
 it('renders with minimal props', async () => {

@@ -14,7 +14,9 @@ const NavBar = () => {
 
     const NavItem = ({ label, path, icon }) => {
         return (
-            <div className={`nav-btn ${currentPage === path ? 'current' : ''}`}>
+            <div
+                className={`nav-item ${currentPage === path ? 'current' : ''}`}
+                data-testid="nav-item">
                 <FontAwesomeIcon icon={icon} size="2x" />
                 <p>{label}</p>
             </div>
