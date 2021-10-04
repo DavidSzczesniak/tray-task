@@ -7,21 +7,19 @@ import rootReducer from '../../reducers';
 import FormField from './FormField';
 
 const store = createStore(rootReducer);
-const Wrapper = ({ children }) => <Provider store={store}>{children}</Provider>;
 const mockCallback = jest.fn();
 
 const renderComponent = ({ type, label = 'Name', required }) => {
     return render(
-        <FormField
-            type={type}
-            label={label}
-            required={required}
-            values={{ name: '' }}
-            handleChange={mockCallback}
-        />,
-        {
-            wrapper: Wrapper,
-        }
+        <Provider store={store}>
+            <FormField
+                type={type}
+                label={label}
+                required={required}
+                values={{ name: '' }}
+                handleChange={mockCallback}
+            />
+        </Provider>
     );
 };
 

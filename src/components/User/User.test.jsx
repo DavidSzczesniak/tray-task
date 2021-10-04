@@ -5,14 +5,21 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import rootReducer from '../../reducers';
 import User from './User';
+import { createMemoryHistory } from 'history';
+import { Router } from 'react-router';
 
 const store = createStore(rootReducer);
-const Wrapper = ({ children }) => <Provider store={store}>{children}</Provider>;
-
 const renderComponent = () => {
-    return render(<User />, {
-        wrapper: Wrapper,
-    });
+    const history = createMemoryHistory();
+    const component = render(
+        <Provider store={store}>
+            <Router history={history}>
+                <User />
+            </Router>
+        </Provider>
+    );
+
+    return { ...component, history: history };
 };
 
 describe('render', () => {
@@ -75,4 +82,30 @@ describe('validation', () => {
             'Password123'
         );
     });
+});
+
+it('stores form values in redux on successful submission', async () => {
+    const { getByTestId, getByLabelText } = renderComponent();
+    const mockName = 'David Szczesniak';
+    const mockRole = 'Software Engineer';
+    const mockEmail = 'david@test.com';
+    const mockPassword = 'Password123';
+
+    function changeFieldValue(field, value) {
+        fireEvent.change(getByLabelText(field), { target: { value: value } });
+    }
+
+    // submit form
+    changeFieldValue('Name', mockName);
+    changeFieldValue('Role', mockRole);
+    changeFieldValue('Email', mockEmail);
+    changeFieldValue('Password', mockPassword);
+    fireEvent.click(getByTestId('custom-btn'));
+
+    // check values in redux
+    const state = store.getState().formValues;
+    expect(state.name).toBe(mockName);
+    expect(state.role).toBe(mockRole);
+    expect(state.email).toBe(mockEmail);
+    expect(state.password).toBe(mockPassword);
 });
